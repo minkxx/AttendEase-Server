@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/monsurcodes/AttendEase-Server/compare/v0.1.1...v0.1.2) (2026-06-08)
+
+
+### Bug Fixes
+
+* lint failure due to missing generated prisma client ([9e34045](https://github.com/monsurcodes/AttendEase-Server/commit/9e3404561bf0a16ce72d33190f38cbfa475400aa))
+
 ### [0.1.1](https://github.com/monsurcodes/AttendEase-Server/compare/v0.1.0...v0.1.1) (2026-06-08)
 
 
