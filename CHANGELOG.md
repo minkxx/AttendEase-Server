@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/monsurcodes/AttendEase-Server/compare/v0.1.0...v0.1.1) (2026-06-08)
+
+
+### Bug Fixes
+
+* eslint errors related to unsafe calls ([70cbd7b](https://github.com/monsurcodes/AttendEase-Server/commit/70cbd7b8d6944ec7262ab9d63a9b6fa6343a5026))
+
 ## 0.1.0 (2026-06-08)
 
 ### Features
