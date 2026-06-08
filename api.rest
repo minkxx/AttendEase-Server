@@ -1,0 +1,22 @@
+@BASE_URL=http://localhost:3000
+
+### server health
+GET {{BASE_URL}}/health
+
+
+### auth - register user
+POST {{BASE_URL}}/api/auth/register
+
+
+### auth - email sign in
+POST {{BASE_URL}}/api/auth/sign-in/email
+
+
+### auth - username sign in
+POST {{BASE_URL}}/api/auth/sign-in/username
+
+
+### auth - sign out
+POST {{BASE_URL}}/api/auth/sign-out
+
+
