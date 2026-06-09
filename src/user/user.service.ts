@@ -6,7 +6,13 @@ import { PrismaService } from '../prisma/prisma.service';
 export class UserService {
   constructor(private prismaService: PrismaService) {}
 
-  create(createUserDto: CreateUserDto) {
-    return createUserDto;
+  async createUser(createUserDto: CreateUserDto) {
+    return await this.prismaService.user.create({
+      data: createUserDto,
+    });
+  }
+
+  async findByEmail(email: string) {
+    return await this.prismaService.user.findUnique({ where: { email } });
   }
 }
