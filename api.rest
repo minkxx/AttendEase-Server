@@ -1,28 +1,37 @@
 @BASE_URL=http://localhost:3000
 
+@accessToken=b8YKnumUEErU54z9953wkfmPvEeB6Cis.GfyareMHFMtx6Bbfz2hp2LaGakdMBrpRuefQWnA6bQY=
+
 ### server health
 GET {{BASE_URL}}/health
 
 
-### auth - register user
-POST {{BASE_URL}}/api/auth/register
+### auth - email sign up
+POST {{BASE_URL}}/api/auth/sign-up/email
 Content-Type: application/json
 
 {
-    "name": "",
-    "email": "",
-    "password": ""
+    "name": "Vidoh",
+    "email": "vidoh93084@fanchatu.com",
+    "password": "Pass@123"
 }
 
 ### auth - email sign in
 POST {{BASE_URL}}/api/auth/sign-in/email
+Content-Type: application/json
 
+{
+    "email": "vidoh93084@fanchatu.com",
+    "password": "Pass@123"
+}
 
 ### auth - username sign in
 POST {{BASE_URL}}/api/auth/sign-in/username
+Content-Type: application/json
 
+{}
 
 ### auth - sign out
 POST {{BASE_URL}}/api/auth/sign-out
-
+Authorization: Bearer {{accessToken}}
 
