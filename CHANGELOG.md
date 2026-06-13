@@ -2,19 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.1.2](https://github.com/monsurcodes/AttendEase-Server/compare/v0.1.1...v0.1.2) (2026-06-08)
+### [0.2.1](https://github.com/monsurcodes/AttendEase-Server/compare/v0.2.0...v0.2.1) (2026-06-13)
 
+
+### Features
+
+* add better-auth packages ([e9c99aa](https://github.com/monsurcodes/AttendEase-Server/commit/e9c99aa3e3a88ebfff2d853d05b402d34e85c680))
+* add better-auth tables ([4211aa0](https://github.com/monsurcodes/AttendEase-Server/commit/4211aa06bcf07fee0eabdcc29394ca4016cad620))
+* add clean:info script with rimraf to fix server build error ([e398527](https://github.com/monsurcodes/AttendEase-Server/commit/e3985277af5cb6e43e9384b11160c7178bf8635c))
+* better-auth config file ([1dfe4ec](https://github.com/monsurcodes/AttendEase-Server/commit/1dfe4ecd289340355426314a6fd4f3b5d3490d9d))
+* disbale bodyParser for better-auth to work ([136d67b](https://github.com/monsurcodes/AttendEase-Server/commit/136d67bfa5ac70c050446b8d76c46e2ef4c2ba30))
+* replace jwt config with better-auth config ([616cc11](https://github.com/monsurcodes/AttendEase-Server/commit/616cc11eb091ef9bc1f5e5c541aa0ab5fe0ff420))
+
+## [0.2.0](https://github.com/monsurcodes/AttendEase-Server/compare/v0.1.2...v0.2.0) (2026-06-09)
+
+### Features
+
+- add cerateUser and findByEmail ([840ccba](https://github.com/monsurcodes/AttendEase-Server/commit/840ccba7b39ccd86261a0e3b6b30f46d81abd73b))
+- add ConfigModule to read .env ([1c6eb3b](https://github.com/monsurcodes/AttendEase-Server/commit/1c6eb3be1b15e02bf8746e520ba5b2ea65272291))
+- add CreateUserDto ([f80fe22](https://github.com/monsurcodes/AttendEase-Server/commit/f80fe2255895667d6cb20b45ca14859055295b44))
+- add packages ([bb5969a](https://github.com/monsurcodes/AttendEase-Server/commit/bb5969acf3ad8b6c3daa6885ab8f9d625b0bd55e))
+- add register user ([de257b9](https://github.com/monsurcodes/AttendEase-Server/commit/de257b95efa6712809f2322417b6d994d35d47db))
+- add RegisterDto ([1e1e6f0](https://github.com/monsurcodes/AttendEase-Server/commit/1e1e6f029e8acab1e482b4e1cb9432f024119270))
+- add request body to /auth/register endpoint ([4ea221e](https://github.com/monsurcodes/AttendEase-Server/commit/4ea221ef54c4e8197ec3dc3ad3542030cbb158fd))
+- add UserModule ([852494d](https://github.com/monsurcodes/AttendEase-Server/commit/852494d7e54035baa1739e995a2744400193ccc3))
+- approve bcrypt build ([49558f6](https://github.com/monsurcodes/AttendEase-Server/commit/49558f65c6eff22f709513ab923bf5c0736c36c9))
+- exports itself for other modules to use ([886b9ae](https://github.com/monsurcodes/AttendEase-Server/commit/886b9ae94bcd4871a5ae9d752e2fc9403ca74cee))
+- pass registerDto to register method ([88c4a90](https://github.com/monsurcodes/AttendEase-Server/commit/88c4a90a72153c68b7fa1e09ff1784f211487ced))
 
 ### Bug Fixes
 
-* lint failure due to missing generated prisma client ([9e34045](https://github.com/monsurcodes/AttendEase-Server/commit/9e3404561bf0a16ce72d33190f38cbfa475400aa))
+- sasl prisma client error ([8492f07](https://github.com/monsurcodes/AttendEase-Server/commit/8492f0795d3811e6e26d97792038f4c8f771eaa8))
+
+### [0.1.2](https://github.com/monsurcodes/AttendEase-Server/compare/v0.1.1...v0.1.2) (2026-06-08)
+
+### Bug Fixes
+
+- lint failure due to missing generated prisma client ([9e34045](https://github.com/monsurcodes/AttendEase-Server/commit/9e3404561bf0a16ce72d33190f38cbfa475400aa))
 
 ### [0.1.1](https://github.com/monsurcodes/AttendEase-Server/compare/v0.1.0...v0.1.1) (2026-06-08)
 
-
 ### Bug Fixes
 
-* eslint errors related to unsafe calls ([70cbd7b](https://github.com/monsurcodes/AttendEase-Server/commit/70cbd7b8d6944ec7262ab9d63a9b6fa6343a5026))
+- eslint errors related to unsafe calls ([70cbd7b](https://github.com/monsurcodes/AttendEase-Server/commit/70cbd7b8d6944ec7262ab9d63a9b6fa6343a5026))
 
 ## 0.1.0 (2026-06-08)
 

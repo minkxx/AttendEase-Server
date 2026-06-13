@@ -8,16 +8,22 @@ export class PrismaService
   extends PrismaClient
   implements OnModuleInit, OnModuleDestroy
 {
-  private static pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-  });
-
-  private static adapter = new PrismaPg(PrismaService.pool);
+  private pool!: Pool;
+  private adapter!: PrismaPg;
 
   constructor() {
-    super({
-      adapter: PrismaService.adapter,
+    const pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
     });
+
+    const adapter = new PrismaPg(pool);
+
+    super({
+      adapter,
+    });
+
+    this.pool = pool;
+    this.adapter = adapter;
   }
 
   async onModuleInit(): Promise<void> {
