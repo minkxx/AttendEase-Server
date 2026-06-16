@@ -5,9 +5,6 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
-import { EmailService } from './email/email.service';
-import { EmailModule } from './email/email.module';
-import { RoomService } from './room/room.service';
 import { RoomModule } from './room/room.module';
 
 @Module({
@@ -16,10 +13,9 @@ import { RoomModule } from './room/room.module';
     AuthModule,
     UserModule,
     PrismaModule,
-    EmailModule,
     RoomModule,
   ],
   controllers: [AppController],
-  providers: [AppService, EmailService, RoomService],
+  providers: [AppService],
 })
 export class AppModule {}

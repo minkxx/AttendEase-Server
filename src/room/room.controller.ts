@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { RoomService } from './room.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { Session, type UserSession } from '@thallesp/nestjs-better-auth';
@@ -22,5 +22,10 @@ export class RoomController {
     @Session() session: UserSession,
   ) {
     return await this.roomService.joinRoom(joinRoomDto, session);
+  }
+
+  @Get(':id')
+  async getRoom(@Param('id') id: string, @Session() session: UserSession) {
+    return this.roomService.getRoom(id, session);
   }
 }

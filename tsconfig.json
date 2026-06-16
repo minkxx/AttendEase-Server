@@ -19,10 +19,17 @@
     "skipLibCheck": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
-    "types": ["node", "jest"]
+    "types": ["node", "jest"],
+    "ignoreDeprecations": "6.0",
+    "baseUrl": "./",
+    "paths": {
+      ".prisma/client/default": ["./src/generated/prisma/client.ts"],
+      "@prisma/client": ["./src/generated/prisma/client.ts"],
+      "@prisma/client/*": ["./src/generated/prisma/*"]
+    }
   },
   "include": ["src/**/*", "prisma.config.ts"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]

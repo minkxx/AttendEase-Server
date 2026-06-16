@@ -1,15 +1,11 @@
-import 'dotenv/config';
 import { betterAuth } from 'better-auth';
 import { bearer } from 'better-auth/plugins';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { PrismaClient } from '../generated/prisma/client';
-import { Pool } from 'pg';
 import { PrismaPg } from '@prisma/adapter-pg';
+import { sharedPool } from '../prisma/prisma.pool';
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-const adapter = new PrismaPg(pool);
-
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient({ adapter: new PrismaPg(sharedPool) }); // Separate from PrismaService — better-auth requires its own client instance at load time.
 
 export const authExtensions = {
   sendEmail: null as
@@ -34,16 +30,16 @@ export const auth = betterAuth({
       if (authExtensions.sendEmail) {
         await authExtensions.sendEmail(user.email, url, user.name);
       } else {
-        console.warn('Email extension hook not registered yet.');
+        throw new Error(
+          'EmailService not initialized — sendVerificationEmail called before AuthModule.onModuleInit',
+        );
       }
     },
   },
 
   plugins: [bearer()],
 
-  hooks: {},
-
-  trustedOrigins: [],
+  trustedOrigins: [process.env.FRONTEND_URL ?? ''],
 
   advanced: {
     disableOriginCheck: process.env.NODE_ENV !== 'production',

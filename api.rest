@@ -58,3 +58,8 @@ Content-Type: application/json
 }
 
 
+### room - get room
+GET {{BASE_URL}}/api/room/f374ec3f-c60d-42b0-88c2-745afb8e84be
+Authorization: Bearer {{accessToken}}
+
+

@@ -132,6 +132,7 @@ model Timetable {
   attendance Attendance[]
   polls      BunkPoll[]
 
+  @@index([roomId])
   @@map("timetable")
 }
 
@@ -148,6 +149,7 @@ model Attendance {
   timetable Timetable @relation(fields: [timetableId], references: [id], onDelete: Cascade)
 
   @@unique([userId, timetableId, date])
+  @@index([userId])
   @@map("attendance")
 }
 
