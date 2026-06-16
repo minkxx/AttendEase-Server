@@ -2,20 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.2.3](https://github.com/monsurcodes/AttendEase-Server/compare/v0.2.2...v0.2.3) (2026-06-15)
+### [0.2.4](https://github.com/monsurcodes/AttendEase-Server/compare/v0.2.3...v0.2.4) (2026-06-16)
 
 
 ### Features
 
-* add endpoints like /room/create and /room/join ([6230fb3](https://github.com/monsurcodes/AttendEase-Server/commit/6230fb380630bf255b9cef8d3c4099da40c0d4f0))
-* add room module ([c6938b4](https://github.com/monsurcodes/AttendEase-Server/commit/c6938b4e3848bf8a4677f016ce89a38beb83c1e9))
-* add room service methods ([1ac61c1](https://github.com/monsurcodes/AttendEase-Server/commit/1ac61c15b3cc7813de99fc37dc000be6aa188351))
-* add zod validator ([f6b71af](https://github.com/monsurcodes/AttendEase-Server/commit/f6b71afc1a3d56f985a7ebb53720f5de3dc11326))
-* create-room-dto ([fe0cfd2](https://github.com/monsurcodes/AttendEase-Server/commit/fe0cfd278ea6719946ad2b70546fcc69492b6a51))
-* init room module ([450c7d7](https://github.com/monsurcodes/AttendEase-Server/commit/450c7d748fd91fc25e23f504133de53b3fc5f7ff))
-* join-room-dto ([cd5c32c](https://github.com/monsurcodes/AttendEase-Server/commit/cd5c32cfa590c566fe114bd401d3c3791305af5b))
-* new test endpoints ([1201207](https://github.com/monsurcodes/AttendEase-Server/commit/1201207fdcaa893d05161127cd353445922103d2))
-* set zod validation pipe globally to app ([4ebb86a](https://github.com/monsurcodes/AttendEase-Server/commit/4ebb86a9167d6ad60c6cb171138107c458c242a0))
+* add frontend url to trusted origins ([a9a4735](https://github.com/monsurcodes/AttendEase-Server/commit/a9a47353c7df8f74df825e08c217d5f6421b02ef))
+* add getroom details ([4d06942](https://github.com/monsurcodes/AttendEase-Server/commit/4d06942d1cd200e7809272c6e42424e2c4a6c161))
+* add global filter to handle prisma errors ([20ce7d7](https://github.com/monsurcodes/AttendEase-Server/commit/20ce7d701f5bbfe2ab48092f3ea2ed3a19ca5098))
+* add indexing to timetable and attendance tables ([7fb7840](https://github.com/monsurcodes/AttendEase-Server/commit/7fb7840bf8c41bc650811b954880c29342fd5210))
+* add logger utility ([261de9a](https://github.com/monsurcodes/AttendEase-Server/commit/261de9a85805dcbcab9a6dcd6e3ef01aa59e26b2))
+* add nestjs-prisma ([f225a62](https://github.com/monsurcodes/AttendEase-Server/commit/f225a62e86680758cabfb9faa965062cd824d66d))
+* add new endpoint ([38a6d32](https://github.com/monsurcodes/AttendEase-Server/commit/38a6d322dcb6ad303fc779af481d6e8b6004a972))
+* configure nestjs-prisma to use generated client ([c852d44](https://github.com/monsurcodes/AttendEase-Server/commit/c852d4482d940e4621fef8d831992643889503de))
+* enhanced null and any safety ([d01a3f4](https://github.com/monsurcodes/AttendEase-Server/commit/d01a3f4f43dd4f27afd667ece4988170dc23e22b))
+* throws error if EmailService not initialized ([663a14a](https://github.com/monsurcodes/AttendEase-Server/commit/663a14a7b5d1e09b80b3c7cdd173ff99e8036654))
+* use a single shared db connection pool ([a94b44a](https://github.com/monsurcodes/AttendEase-Server/commit/a94b44a6e3a53597de89431edbe275511e627f2e))
+
+
+### Bug Fixes
+
+* move the 'dotenv/config' to it's desired file ([e0f2542](https://github.com/monsurcodes/AttendEase-Server/commit/e0f2542db7c226b13f6264c6111697c035bec0df))
+* remove dead fields ([830daa4](https://github.com/monsurcodes/AttendEase-Server/commit/830daa4fc4dac7399e3277b65dbd7e3019026595))
+* remove dead guards ([baa6c68](https://github.com/monsurcodes/AttendEase-Server/commit/baa6c68f58dbd5ab6179de6f655523e087ce639c))
+* remove dead guards ([0097914](https://github.com/monsurcodes/AttendEase-Server/commit/009791427f36faefe5a0684648b3f13d8294418e))
+* remove redundant membership check ([541cfa0](https://github.com/monsurcodes/AttendEase-Server/commit/541cfa0a8b493d116c4dd9e1bff64293ed40cb9c))
+* remove redundant second copy of the services from app.providers array ([41d7ce2](https://github.com/monsurcodes/AttendEase-Server/commit/41d7ce25bc5b1d11b18421ccd7d2306ac3b56483))
+* remove unused packages ([d1b38ac](https://github.com/monsurcodes/AttendEase-Server/commit/d1b38ac0c3e98695accb4b73462cae36c03b129a))
+* removed EmailModule as it is neither a global module nor has a controller ([af29730](https://github.com/monsurcodes/AttendEase-Server/commit/af2973044757c92647196676945a2fa19c47880f))
+* wrong exception type ([03ce63f](https://github.com/monsurcodes/AttendEase-Server/commit/03ce63f854b6e323338ac4981b006533ea1926c0))
+* wrong exception type ([bd7b92a](https://github.com/monsurcodes/AttendEase-Server/commit/bd7b92a7c4721d08b1a85c8f2a962c2cc8d675ef))
+
+### [0.2.3](https://github.com/monsurcodes/AttendEase-Server/compare/v0.2.2...v0.2.3) (2026-06-15)
+
+### Features
+
+- add endpoints like /room/create and /room/join ([6230fb3](https://github.com/monsurcodes/AttendEase-Server/commit/6230fb380630bf255b9cef8d3c4099da40c0d4f0))
+- add room module ([c6938b4](https://github.com/monsurcodes/AttendEase-Server/commit/c6938b4e3848bf8a4677f016ce89a38beb83c1e9))
+- add room service methods ([1ac61c1](https://github.com/monsurcodes/AttendEase-Server/commit/1ac61c15b3cc7813de99fc37dc000be6aa188351))
+- add zod validator ([f6b71af](https://github.com/monsurcodes/AttendEase-Server/commit/f6b71afc1a3d56f985a7ebb53720f5de3dc11326))
+- create-room-dto ([fe0cfd2](https://github.com/monsurcodes/AttendEase-Server/commit/fe0cfd278ea6719946ad2b70546fcc69492b6a51))
+- init room module ([450c7d7](https://github.com/monsurcodes/AttendEase-Server/commit/450c7d748fd91fc25e23f504133de53b3fc5f7ff))
+- join-room-dto ([cd5c32c](https://github.com/monsurcodes/AttendEase-Server/commit/cd5c32cfa590c566fe114bd401d3c3791305af5b))
+- new test endpoints ([1201207](https://github.com/monsurcodes/AttendEase-Server/commit/1201207fdcaa893d05161127cd353445922103d2))
+- set zod validation pipe globally to app ([4ebb86a](https://github.com/monsurcodes/AttendEase-Server/commit/4ebb86a9167d6ad60c6cb171138107c458c242a0))
 
 ### [0.2.2](https://github.com/monsurcodes/AttendEase-Server/compare/v0.2.1...v0.2.2) (2026-06-14)
 
