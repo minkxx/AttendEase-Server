@@ -1,7 +1,7 @@
 import {
   BadRequestException,
   Injectable,
-  UnauthorizedException,
+  NotFoundException,
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateRoomDto } from './dto/create-room.dto';
@@ -84,9 +84,7 @@ export class RoomService {
     );
 
     if (!isRoomMember) {
-      throw new UnauthorizedException(
-        'Unauthorized: join the room to get members.',
-      );
+      throw new NotFoundException('Join this room to get members.');
     }
 
     return {
