@@ -23,10 +23,6 @@ export class RoomService {
       },
     });
 
-    if (!room) {
-      throw new BadRequestException('Failed to create room.');
-    }
-
     const roomMember = await this.prismaService.roomMember.create({
       data: {
         roomId: room.id,
@@ -35,10 +31,6 @@ export class RoomService {
         isApproved: true,
       },
     });
-
-    if (!roomMember) {
-      throw new BadRequestException('Failed to assign user as room admin.');
-    }
 
     return {
       message: 'Room created successfully.',
@@ -68,10 +60,6 @@ export class RoomService {
     const roomMember = await this.prismaService.roomMember.create({
       data: { roomId: room.id, userId: session.user.id },
     });
-
-    if (!roomMember) {
-      throw new BadRequestException('Failed to join room.');
-    }
 
     return {
       message: 'Room joined successfully.',
