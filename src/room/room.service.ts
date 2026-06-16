@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { type UserSession } from '@thallesp/nestjs-better-auth';
@@ -46,15 +50,16 @@ export class RoomService {
   async joinRoom(joinRoomDto: JoinRoomDto, session: UserSession) {
     const room = await this.prismaService.room.findUnique({
       where: { inviteCode: joinRoomDto.inviteCode },
+      include: { members: true },
     });
 
     if (!room) {
       throw new BadRequestException('Invalid invite code.');
     }
 
-    const existingRoomMember = await this.prismaService.roomMember.findUnique({
-      where: { roomId_userId: { roomId: room.id, userId: session.user.id } },
-    });
+    const existingRoomMember = room.members.some(
+      (member) => member.userId === session.user.id,
+    );
 
     if (existingRoomMember) {
       throw new BadRequestException('Member already joined the room.');
@@ -70,8 +75,35 @@ export class RoomService {
 
     return {
       message: 'Room joined successfully.',
-      room,
       roomMember,
+    };
+  }
+
+  async getRoom(roomId: string, session: UserSession) {
+    const room = await this.prismaService.room.findUnique({
+      where: { id: roomId },
+      include: {
+        members: true,
+      },
+    });
+
+    if (!room) {
+      throw new BadRequestException('Invalid room id.');
+    }
+
+    const isRoomMember = room.members.some(
+      (member) => member.userId === session.user.id,
+    );
+
+    if (!isRoomMember) {
+      throw new UnauthorizedException(
+        'Unauthorized: join the room to get members.',
+      );
+    }
+
+    return {
+      message: 'Fetched room successfully.',
+      room,
     };
   }
 
