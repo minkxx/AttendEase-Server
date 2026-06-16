@@ -5,7 +5,7 @@ import { PrismaClient } from '../generated/prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { sharedPool } from '../prisma/prisma.pool';
 
-const prisma = new PrismaClient({ adapter: new PrismaPg(sharedPool) });
+const prisma = new PrismaClient({ adapter: new PrismaPg(sharedPool) }); // Separate from PrismaService — better-auth requires its own client instance at load time.
 
 export const authExtensions = {
   sendEmail: null as
@@ -30,14 +30,14 @@ export const auth = betterAuth({
       if (authExtensions.sendEmail) {
         await authExtensions.sendEmail(user.email, url, user.name);
       } else {
-        console.warn('Email extension hook not registered yet.');
+        throw new Error(
+          'EmailService not initialized — sendVerificationEmail called before AuthModule.onModuleInit',
+        );
       }
     },
   },
 
   plugins: [bearer()],
-
-  hooks: {},
 
   trustedOrigins: [process.env.FRONTEND_URL ?? ''],
 
