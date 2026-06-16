@@ -3,13 +3,10 @@ import { betterAuth } from 'better-auth';
 import { bearer } from 'better-auth/plugins';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { PrismaClient } from '../generated/prisma/client';
-import { Pool } from 'pg';
 import { PrismaPg } from '@prisma/adapter-pg';
+import { sharedPool } from '../prisma/prisma.pool';
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-const adapter = new PrismaPg(pool);
-
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient({ adapter: new PrismaPg(sharedPool) });
 
 export const authExtensions = {
   sendEmail: null as
