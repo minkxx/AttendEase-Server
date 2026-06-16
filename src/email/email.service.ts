@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import nodemailer from 'nodemailer';
 import type { Transporter } from 'nodemailer';
 import { SMTP_CONSTANTS } from './constants';
@@ -6,6 +6,7 @@ import { SMTP_CONSTANTS } from './constants';
 @Injectable()
 export class EmailService {
   private transporter: Transporter;
+  private readonly logger = new Logger(EmailService.name);
 
   constructor() {
     this.transporter = nodemailer.createTransport({
@@ -38,7 +39,7 @@ export class EmailService {
     try {
       await this.transporter.sendMail(mailOptions);
     } catch (error) {
-      console.error('Failed to send verification email:', error);
+      this.logger.error('Failed to send verification email:', error);
       throw error;
     }
   }
