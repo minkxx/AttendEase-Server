@@ -1,5 +1,4 @@
 import { betterAuth } from 'better-auth';
-import { bearer } from 'better-auth/plugins';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { PrismaClient } from '../generated/prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
@@ -37,7 +36,7 @@ export const auth = betterAuth({
     },
   },
 
-  plugins: [bearer()],
+  plugins: [],
 
   trustedOrigins: [process.env.FRONTEND_URL ?? ''],
 

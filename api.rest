@@ -1,6 +1,5 @@
 @BASE_URL=http://localhost:3000
 
-@accessToken=zFYWXuCH9tztoG5NOcxdrA5ZwpPOfpTQ.nkg7swcJ9EKcMRUms21fTcuOdOXb9dpBoqEan9uprbM=
 
 ### server health
 GET {{BASE_URL}}/health
@@ -29,17 +28,14 @@ Content-Type: application/json
 
 ### auth - sign out
 POST {{BASE_URL}}/api/auth/sign-out
-Authorization: Bearer {{accessToken}}
 
 
 ### user - get me
 GET {{BASE_URL}}/api/user
-Authorization: Bearer {{accessToken}}
 
 
 ### room - create room
 POST {{BASE_URL}}/api/room/create
-Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
@@ -50,7 +46,6 @@ Content-Type: application/json
 
 ### room - join room
 POST {{BASE_URL}}/api/room/join
-Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
@@ -60,12 +55,10 @@ Content-Type: application/json
 
 ### room - get room
 GET {{BASE_URL}}/api/room/f374ec3f-c60d-42b0-88c2-745afb8e84be
-Authorization: Bearer {{accessToken}}
 
 
 ### room - approve member
 POST  {{BASE_URL}}/api/room/member/approve
-Authorization: Bearer {{accessToken}}
 Content-Type: application/json
 
 {
