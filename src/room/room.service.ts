@@ -7,6 +7,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { type UserSession } from '@thallesp/nestjs-better-auth';
 import { JoinRoomDto } from './dto/join-room.dto';
+import { ApproveMemberDto } from './dto/approve-member.dto';
 
 @Injectable()
 export class RoomService {
@@ -81,6 +82,34 @@ export class RoomService {
     return {
       message: 'Fetched room successfully.',
       room,
+    };
+  }
+
+  async approveMember(
+    approveMemberDto: ApproveMemberDto,
+    session: UserSession,
+  ) {
+    const room = await this.prismaService.room.findUnique({
+      where: { id: approveMemberDto.roomId, adminId: session.user.id },
+    });
+    if (!room) {
+      throw new NotFoundException(
+        'Only admin of this room can approve members.',
+      );
+    }
+
+    const member = await this.prismaService.roomMember.update({
+      where: {
+        roomId_userId: { userId: approveMemberDto.memberId, roomId: room.id },
+      },
+      data: {
+        isApproved: true,
+      },
+    });
+
+    return {
+      message: 'Successfully approved memeber!',
+      member,
     };
   }
 

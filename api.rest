@@ -1,6 +1,6 @@
 @BASE_URL=http://localhost:3000
 
-@accessToken=Pi8l1mhL8tyntqaDC0VsPTpioV3TBAsR.Q4cQkbtC3mMLeEHhlFYt8/KH7JzkBphvwoBz0nrXGng=
+@accessToken=zFYWXuCH9tztoG5NOcxdrA5ZwpPOfpTQ.nkg7swcJ9EKcMRUms21fTcuOdOXb9dpBoqEan9uprbM=
 
 ### server health
 GET {{BASE_URL}}/health
@@ -63,3 +63,12 @@ GET {{BASE_URL}}/api/room/f374ec3f-c60d-42b0-88c2-745afb8e84be
 Authorization: Bearer {{accessToken}}
 
 
+### room - approve member
+POST  {{BASE_URL}}/api/room/member/approve
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+{
+    "roomId": "f374ec3f-c60d-42b0-88c2-745afb8e84be",
+    "memberId": "dMlfJ3dtSz5CcMovloUUUCv2b8K0C1m7"
+}

@@ -1,8 +1,7 @@
 import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ZodValidationPipe } from 'nestjs-zod';
-import { PrismaClientExceptionFilter } from 'nestjs-prisma';
-import { HttpStatus } from '@nestjs/common';
+import { PrismaExceptionFilter } from './common/filters/prisma-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -15,15 +14,9 @@ async function bootstrap() {
     exclude: ['/', 'health'],
   });
 
-  const { httpAdapter } = app.get(HttpAdapterHost);
+  const adapterHost = app.get(HttpAdapterHost);
 
-  app.useGlobalFilters(
-    new PrismaClientExceptionFilter(httpAdapter, {
-      P2000: HttpStatus.BAD_REQUEST,
-      P2002: HttpStatus.CONFLICT,
-      P2025: HttpStatus.NOT_FOUND,
-    }),
-  );
+  app.useGlobalFilters(new PrismaExceptionFilter(adapterHost));
 
   await app.listen(process.env.PORT ?? 3000);
 }

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://github.com/monsurcodes/AttendEase-Server/compare/v0.2.4...v0.2.5) (2026-06-17)
+
+
+### Features
+
+* add audit report to gitignore ([8e50dcd](https://github.com/monsurcodes/AttendEase-Server/commit/8e50dcd83214dee375649dac0b43dd07213c70c2))
+* add prettierignore file ([36f1c81](https://github.com/monsurcodes/AttendEase-Server/commit/36f1c81539c963caa490afbc321211947b8ebdbc))
+* approve member endpoint ([68e1c50](https://github.com/monsurcodes/AttendEase-Server/commit/68e1c50ca63e07db5d6f1bcd9f48622bb71b2678))
+* custom prisma exception filter ([28dbfad](https://github.com/monsurcodes/AttendEase-Server/commit/28dbfad2373492a8e7f4ec44364e06b8251df8d0))
+* removed nestjs-prisma ([d61083f](https://github.com/monsurcodes/AttendEase-Server/commit/d61083f754fd2dedad524b12e8386ed707d5ac2e))
+
 ### [0.2.4](https://github.com/monsurcodes/AttendEase-Server/compare/v0.2.3...v0.2.4) (2026-06-16)
 
 

@@ -3,6 +3,7 @@ import { RoomService } from './room.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { Session, type UserSession } from '@thallesp/nestjs-better-auth';
 import { JoinRoomDto } from './dto/join-room.dto';
+import { ApproveMemberDto } from './dto/approve-member.dto';
 
 @Controller('room')
 export class RoomController {
@@ -26,6 +27,14 @@ export class RoomController {
 
   @Get(':id')
   async getRoom(@Param('id') id: string, @Session() session: UserSession) {
-    return this.roomService.getRoom(id, session);
+    return await this.roomService.getRoom(id, session);
+  }
+
+  @Post('member/approve')
+  async approveMember(
+    @Body() approveMemberDto: ApproveMemberDto,
+    @Session() session: UserSession,
+  ) {
+    return await this.roomService.approveMember(approveMemberDto, session);
   }
 }
