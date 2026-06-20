@@ -12,7 +12,7 @@ export default tseslint.config(
       '.github/',
       '.husky/',
       'prisma/',
-      'src/generated/',
+      'src/common/generated/',
     ],
   },
   eslint.configs.recommended,

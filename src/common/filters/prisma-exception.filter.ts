@@ -6,7 +6,7 @@ import {
   Logger,
 } from '@nestjs/common';
 import { AbstractHttpAdapter, HttpAdapterHost } from '@nestjs/core';
-import { Prisma } from '../../generated/prisma/client';
+import { Prisma } from '../../common/generated/prisma/client';
 
 const PRISMA_ERROR_MAP: Record<string, HttpStatus> = {
   P2000: HttpStatus.BAD_REQUEST,

@@ -3,6 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { randomBytes } from 'crypto';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { type UserSession } from '@thallesp/nestjs-better-auth';
@@ -108,14 +109,12 @@ export class RoomService {
     });
 
     return {
-      message: 'Successfully approved memeber!',
+      message: 'Successfully approved member!',
       member,
     };
   }
 
-  #generateInviteCode() {
-    // Date.now().toString(36).slice(-6).toUpperCase()
-    // crypto.randomBytes(4).toString('base64url').slice(0, 6).toUpperCase()
-    return Date.now().toString(36).slice(-6).toUpperCase();
+  #generateInviteCode(): string {
+    return randomBytes(4).toString('base64url').toUpperCase();
   }
 }

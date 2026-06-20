@@ -57,6 +57,6 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 *.tsbuildinfo
 
-/src/generated/prisma
+/src/common/generated/prisma
 project-snapshot.md
 audit_report.md
