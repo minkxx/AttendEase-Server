@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.7](https://github.com/minkxx/AttendEase-Server/compare/v0.2.6...v0.2.7) (2026-06-19)
+
+
+### Features
+
+* add escape-html ([3604bf8](https://github.com/minkxx/AttendEase-Server/commit/3604bf849c82aedeb821b9e2ef845b3fc8a3f6df))
+* env validation on app startup ([2c313e2](https://github.com/minkxx/AttendEase-Server/commit/2c313e274d04c9f4f324b72ce87dbcd3c79a6cd2))
+* generate invite code with crypto ([10453d1](https://github.com/minkxx/AttendEase-Server/commit/10453d1403ed1987fd8880e59f82941eea2acc94))
+* guard to html injection and unsafe url injection ([479cb4b](https://github.com/minkxx/AttendEase-Server/commit/479cb4ba7ed25d3206d74e1b52b2be2b204cfc27))
+
+
+### Bug Fixes
+
+* broken lock-file ([be37bb2](https://github.com/minkxx/AttendEase-Server/commit/be37bb23057fcbe0e4f31bcf9e29ca7d1577125e))
+
 ### [0.2.6](https://github.com/minkxx/AttendEase-Server/compare/v0.2.5...v0.2.6) (2026-06-18)
 
 

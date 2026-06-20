@@ -6,10 +6,14 @@ import { UserModule } from './user/user.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 import { RoomModule } from './room/room.module';
+import { validateEnv } from './common/config/env.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      validate: validateEnv,
+      isGlobal: true,
+    }),
     AuthModule,
     UserModule,
     PrismaModule,
