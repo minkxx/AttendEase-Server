@@ -2,22 +2,28 @@ import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import nodemailer from 'nodemailer';
 import type { Transporter } from 'nodemailer';
 import escapeHtml from 'escape-html';
-import { SMTP_CONSTANTS } from './constants';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class EmailService implements OnModuleInit {
   private transporter: Transporter | null = null;
   private readonly logger = new Logger(EmailService.name);
 
-  async onModuleInit(): Promise<void> {
+  constructor(private readonly configService: ConfigService) {
     this.transporter = nodemailer.createTransport({
-      host: SMTP_CONSTANTS.HOST,
-      port: parseInt(SMTP_CONSTANTS.PORT, 10),
+      host: this.configService.get<string>('SMTP_MAIL_HOST'),
+      port: this.configService.get<number>('SMTP_MAIL_PORT'),
       auth: {
-        user: SMTP_CONSTANTS.USER,
-        pass: SMTP_CONSTANTS.PASS,
+        user: this.configService.get<string>('SMTP_MAIL_USER'),
+        pass: this.configService.get<string>('SMTP_MAIL_PASS'),
       },
     });
+  }
+
+  async onModuleInit() {
+    if (!this.transporter) {
+      throw Error('Email transporter not initiated!');
+    }
 
     try {
       await this.transporter.verify();
@@ -37,7 +43,7 @@ export class EmailService implements OnModuleInit {
     const safeUrl = new URL(url).href;
 
     const mailOptions = {
-      from: `"${process.env.APP_NAME || 'AttendEase'}" <${SMTP_CONSTANTS.FROM}>`,
+      from: `"${this.configService.get<string>('APP_NAME') || 'AttendEase'}" <${this.configService.get<string>('SMTP_MAIL_FROM')}>`,
       to,
       subject: 'Verify your email address',
       html: `

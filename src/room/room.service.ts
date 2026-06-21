@@ -1,18 +1,22 @@
 import {
   BadRequestException,
+  Inject,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
 import { randomBytes } from 'crypto';
-import { PrismaService } from '../prisma/prisma.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { type UserSession } from '@thallesp/nestjs-better-auth';
 import { JoinRoomDto } from './dto/join-room.dto';
 import { ApproveMemberDto } from './dto/approve-member.dto';
+import { DATABASE_CONNECTION } from '../database/database-connection';
+import { PrismaClient } from '../common/generated/prisma/client';
 
 @Injectable()
 export class RoomService {
-  constructor(private prismaService: PrismaService) {}
+  constructor(
+    @Inject(DATABASE_CONNECTION) private prismaService: PrismaClient,
+  ) {}
 
   async createRoom(createRoomDto: CreateRoomDto, session: UserSession) {
     const inviteCode = this.#generateInviteCode();

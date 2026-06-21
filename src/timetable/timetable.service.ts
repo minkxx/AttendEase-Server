@@ -1,10 +1,13 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTimetableDto } from './dto/create-timetable.dto';
+import { DATABASE_CONNECTION } from '../database/database-connection';
+import { PrismaClient } from '../common/generated/prisma/client';
 
 @Injectable()
 export class TimetableService {
-  constructor(private prismaService: PrismaService) {}
+  constructor(
+    @Inject(DATABASE_CONNECTION) private prismaService: PrismaClient,
+  ) {}
 
   async createTimetable(createTimetableDto: CreateTimetableDto) {
     const timetable = await this.prismaService.timetable.create({
