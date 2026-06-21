@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.9](https://github.com/minkxx/AttendEase-Server/compare/v0.2.8...v0.2.9) (2026-06-21)
+
+
+### Features
+
+* add database module ([28dbf97](https://github.com/minkxx/AttendEase-Server/commit/28dbf97048178cc767726a1de43a0ed352796ff7))
+* add database module and removed prisma module ([ccfebb4](https://github.com/minkxx/AttendEase-Server/commit/ccfebb4360f2123951be8822fef8f91413c9b5d1))
+* use config service to get env ([e818fa1](https://github.com/minkxx/AttendEase-Server/commit/e818fa187ceb37ecb852b9fd7e4f0fd942629b5f))
+* verify smtp connection on module init ([d9a1555](https://github.com/minkxx/AttendEase-Server/commit/d9a15554e97a18c3e8c7a4bd4d91a09a717af38c))
+
 ### [0.2.8](https://github.com/minkxx/AttendEase-Server/compare/v0.2.7...v0.2.8) (2026-06-21)
 
 
