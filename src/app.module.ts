@@ -3,11 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
-import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 import { RoomModule } from './room/room.module';
 import { validateEnv } from './common/config/env.config';
 import { TimetableModule } from './timetable/timetable.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import { TimetableModule } from './timetable/timetable.module';
     }),
     AuthModule,
     UserModule,
-    PrismaModule,
+    DatabaseModule,
     RoomModule,
     TimetableModule,
   ],
