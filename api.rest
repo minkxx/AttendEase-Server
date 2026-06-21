@@ -56,3 +56,18 @@ GET {{BASE_URL}}/api/rooms/f374ec3f-c60d-42b0-88c2-745afb8e84be
 PATCH {{BASE_URL}}/api/rooms/f374ec3f-c60d-42b0-88c2-745afb8e84be/members/hRxYKC4tjRxomwDbWO0gQyG5V3T2zE7x/approve
 
 
+### timetable - get timetable
+GET {{BASE_URL}}/api/rooms/f374ec3f-c60d-42b0-88c2-745afb8e84be/timetable
+
+
+### timetable - create timetable
+POST {{BASE_URL}}/api/rooms/f374ec3f-c60d-42b0-88c2-745afb8e84be/timetable
+Content-Type: application/json
+
+{
+    "subjectName": "Maths",
+    "dayOfWeek": 1,
+    "startTime": "12:30",
+    "endTime": "13:30"
+}
+

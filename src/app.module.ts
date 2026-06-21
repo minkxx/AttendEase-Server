@@ -7,6 +7,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 import { RoomModule } from './room/room.module';
 import { validateEnv } from './common/config/env.config';
+import { TimetableModule } from './timetable/timetable.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { validateEnv } from './common/config/env.config';
     UserModule,
     PrismaModule,
     RoomModule,
+    TimetableModule,
   ],
   controllers: [AppController],
   providers: [AppService],
