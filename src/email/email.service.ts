@@ -1,11 +1,11 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import nodemailer from 'nodemailer';
 import type { Transporter } from 'nodemailer';
 import escapeHtml from 'escape-html';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
-export class EmailService {
+export class EmailService implements OnModuleInit {
   private transporter: Transporter | null = null;
   private readonly logger = new Logger(EmailService.name);
 
@@ -20,7 +20,7 @@ export class EmailService {
     });
   }
 
-  async verifyConnection() {
+  async onModuleInit() {
     if (!this.transporter) {
       throw Error('Email transporter not initiated!');
     }
@@ -43,7 +43,7 @@ export class EmailService {
     const safeUrl = new URL(url).href;
 
     const mailOptions = {
-      from: `"${process.env.APP_NAME || 'AttendEase'}" <${this.configService.get<string>('SMTP_MAIL_FROM')}>`,
+      from: `"${this.configService.get<string>('APP_NAME') || 'AttendEase'}" <${this.configService.get<string>('SMTP_MAIL_FROM')}>`,
       to,
       subject: 'Verify your email address',
       html: `
