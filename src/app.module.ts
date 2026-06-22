@@ -8,6 +8,7 @@ import { RoomModule } from './room/room.module';
 import { validateEnv } from './common/config/env.config';
 import { TimetableModule } from './timetable/timetable.module';
 import { DatabaseModule } from './database/database.module';
+import { AttendanceModule } from './attendance/attendance.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { DatabaseModule } from './database/database.module';
     DatabaseModule,
     RoomModule,
     TimetableModule,
+    AttendanceModule,
   ],
   controllers: [AppController],
   providers: [AppService],

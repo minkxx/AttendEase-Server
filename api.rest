@@ -71,3 +71,12 @@ Content-Type: application/json
     "endTime": "13:30"
 }
 
+
+### attendance - mark
+POST {{BASE_URL}}/api/attendance/933338d1-5578-47eb-b0b8-a5fc337f2dae/mark
+Content-Type: application/json
+
+{
+    "date": "2026-06-22T15:30:00Z"
+}
+
