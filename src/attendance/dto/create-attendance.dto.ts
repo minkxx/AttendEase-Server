@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createZodDto } from 'nestjs-zod';
 
 export const createAttendanceSchema = z.object({
-  userId: z.string().nonempty({ error: 'roomId can not be empty.' }),
-  timetableId: z.string().nonempty({ error: 'roomId can not be empty.' }),
+  userId: z.string().nonempty({ error: 'userId can not be empty.' }),
+  timetableId: z.string().nonempty({ error: 'timetableId can not be empty.' }),
   date: z.iso.datetime({ error: 'must be a valid date.' }),
   status: z.enum(['PRESENT', 'ABSENT', 'CANCELLED']).optional(),
   isManual: z.boolean({ error: 'must be a boolean value.' }).optional(),
