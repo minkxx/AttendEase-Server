@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/minkxx/AttendEase-Server/compare/v0.2.9...v0.3.0) (2026-06-23)
+
+
+### Features
+
+* add attendance module ([8d88844](https://github.com/minkxx/AttendEase-Server/commit/8d888446b9c1350ece8a24e5ef7c84b31bbf8f9f))
+* add create poll dto ([b6fdb84](https://github.com/minkxx/AttendEase-Server/commit/b6fdb84b3a98ceb029296b8cb144a7623fd1c851))
+* add create poll endpoint ([a5ea901](https://github.com/minkxx/AttendEase-Server/commit/a5ea9015c4dcd573f725259655aca2990bdd4f01))
+* add poll controller ([ad9122a](https://github.com/minkxx/AttendEase-Server/commit/ad9122a7d670ef65bf1bb99d92bbf0778c77028d))
+* add poll gateway ([a8e8668](https://github.com/minkxx/AttendEase-Server/commit/a8e86680945355a81610aff1c6e1f52fd92069a8))
+* add poll module ([e55ded2](https://github.com/minkxx/AttendEase-Server/commit/e55ded21cfd17f8c611fe3af27640fd93960e77b))
+* add poll module and redis module ([b180e5f](https://github.com/minkxx/AttendEase-Server/commit/b180e5f65b21a0db7e40a660293b3b1d6c718a7e))
+* add poll service ([0066b60](https://github.com/minkxx/AttendEase-Server/commit/0066b60c2ed9711267230417f09e94528b6994ef))
+* add redis adapter ([90bcb30](https://github.com/minkxx/AttendEase-Server/commit/90bcb30823e05a8339c8276a4ab3b88a23788702))
+* add redis adapter to websocket ([0d7321e](https://github.com/minkxx/AttendEase-Server/commit/0d7321e1fddb17e02ee07f0adcb29c9d0272618f))
+* add redis client ([6c4d7e7](https://github.com/minkxx/AttendEase-Server/commit/6c4d7e781e4f449d43b8b648f42744b019ca0328))
+* add redis host and port ([f1562ef](https://github.com/minkxx/AttendEase-Server/commit/f1562efdb6f4ca823e3cd3d16add199056e3007c))
+* add redis module ([23f3015](https://github.com/minkxx/AttendEase-Server/commit/23f3015375697b9fb560c8148a0c1dbfcd4fe858))
+* add redis service ([0ecc697](https://github.com/minkxx/AttendEase-Server/commit/0ecc6979a44ba687a0f065762403e7fcac4a38a4))
+* add socket and redis package ([62f9e14](https://github.com/minkxx/AttendEase-Server/commit/62f9e14571ab2e866db46c020b1d455bd782d5b7))
+
+
+### Bug Fixes
+
+* error message ([055b397](https://github.com/minkxx/AttendEase-Server/commit/055b39791d669afc8bfb1a4880dac0fff2582a27))
+
 ### [0.2.9](https://github.com/minkxx/AttendEase-Server/compare/v0.2.8...v0.2.9) (2026-06-21)
 
 

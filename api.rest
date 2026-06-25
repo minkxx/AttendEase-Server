@@ -71,3 +71,24 @@ Content-Type: application/json
     "endTime": "13:30"
 }
 
+
+### attendance - mark
+POST {{BASE_URL}}/api/attendance/933338d1-5578-47eb-b0b8-a5fc337f2dae/mark
+Content-Type: application/json
+
+{
+    "date": "2026-06-22T15:30:00Z"
+}
+
+
+### poll - create
+POST {{BASE_URL}}/api/polls/f374ec3f-c60d-42b0-88c2-745afb8e84be/933338d1-5578-47eb-b0b8-a5fc337f2dae
+Content-Type: application/json
+
+{
+    "date": "2026-06-25T12:11:46.470Z",
+    "expiresAt": "2026-06-25T12:41:46.470Z",
+    "threshold": 50
+}
+
+

@@ -21,6 +21,12 @@ export const envSchema = z.object({
     message: 'DATABASE_URL must be a valid connection string',
   }),
 
+  REDIS_HOST: z.string({ message: 'REDIS_HOST is required' }),
+
+  REDIS_PORT: z.coerce.number({
+    message: 'REDIS_PORT must be a number',
+  }),
+
   SMTP_MAIL_HOST: z.string({ message: 'SMTP_MAIL_HOST is required' }),
 
   SMTP_MAIL_PORT: z.coerce.number({
