@@ -21,22 +21,28 @@ export class RoomService {
   async createRoom(createRoomDto: CreateRoomDto, session: UserSession) {
     const inviteCode = this.#generateInviteCode();
 
-    const room = await this.prismaService.room.create({
-      data: {
-        inviteCode,
-        name: createRoomDto.name,
-        adminId: session.user.id,
-      },
-    });
+    const { room, roomMember } = await this.prismaService.$transaction(
+      async (tx) => {
+        const newRoom = await tx.room.create({
+          data: {
+            inviteCode,
+            name: createRoomDto.name,
+            adminId: session.user.id,
+          },
+        });
 
-    const roomMember = await this.prismaService.roomMember.create({
-      data: {
-        roomId: room.id,
-        userId: session.user.id,
-        role: 'ADMIN',
-        isApproved: true,
+        const newRoomMember = await tx.roomMember.create({
+          data: {
+            roomId: newRoom.id,
+            userId: session.user.id,
+            role: 'ADMIN',
+            isApproved: true,
+          },
+        });
+
+        return { room: newRoom, roomMember: newRoomMember };
       },
-    });
+    );
 
     return {
       message: 'Room created successfully.',

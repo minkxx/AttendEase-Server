@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/minkxx/AttendEase-Server/compare/v0.3.0...v0.3.1) (2026-06-27)
+
+
+### Features
+
+* add bullmq ([61c8178](https://github.com/minkxx/AttendEase-Server/commit/61c8178aa505a2301bf10316e88aad2fcf5533a7))
+* add consumer processor for pol-sync queue ([899b6cb](https://github.com/minkxx/AttendEase-Server/commit/899b6cbc404d065d80ca88efb2b53b74e0e74a3c))
+* add poll_votes to poll-sync queue ([27a7251](https://github.com/minkxx/AttendEase-Server/commit/27a72515569e5fc58bdb316c8f9c4e8cd0f35b22))
+* add update and get attendance endpoints ([dcbd881](https://github.com/minkxx/AttendEase-Server/commit/dcbd881826b3337f2bafb05a176a62e092f5fa26))
+* approve build from msgpackr-extract ([ffc9894](https://github.com/minkxx/AttendEase-Server/commit/ffc989442c66622d0058be877e18e9fec326bee2))
+* init bull-module and poll-sync-consumer processor ([65ebd24](https://github.com/minkxx/AttendEase-Server/commit/65ebd24381e8482ae3b2e4562fa77cbb1e299cbc))
+* use prisma transaction to create a room and assign a new member as admin ([a8711a5](https://github.com/minkxx/AttendEase-Server/commit/a8711a56b5a16e78b0d0dd0b07b338b810c22bcf))
+
+
+### Bug Fixes
+
+* broken lockfile ([8722524](https://github.com/minkxx/AttendEase-Server/commit/8722524ec3d5caa5712cf649872dee45ef424992))
+* broken lockfile ([e37bbd9](https://github.com/minkxx/AttendEase-Server/commit/e37bbd99949be39eb97110d5d0010f750f8163b1))
+* removed dead null check ([d755b2d](https://github.com/minkxx/AttendEase-Server/commit/d755b2d7792179c9f0c53d7e534b8550c61a6c72))
+
 ## [0.3.0](https://github.com/minkxx/AttendEase-Server/compare/v0.2.9...v0.3.0) (2026-06-23)
 
 

@@ -37,10 +37,6 @@ export class AttendanceService {
       },
     });
 
-    if (!attendance) {
-      throw new NotFoundException('Attendance not found.');
-    }
-
     return {
       message: 'Attendance updated successfully.',
       attendance,

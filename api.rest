@@ -102,8 +102,8 @@ POST {{BASE_URL}}/api/polls/f374ec3f-c60d-42b0-88c2-745afb8e84be/933338d1-5578-4
 Content-Type: application/json
 
 {
-    "date": "2026-06-25T12:11:46.470Z",
-    "expiresAt": "2026-06-25T12:41:46.470Z",
+    "date": "2026-06-27T12:12:47.470Z",
+    "expiresAt": "2026-06-27T13:57:46.470Z",
     "threshold": 50
 }
 
