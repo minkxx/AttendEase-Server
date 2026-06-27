@@ -11,6 +11,8 @@ import Redis from 'ioredis';
 import { REDIS_CLIENT } from '../redis/redis-client';
 import { DATABASE_CONNECTION } from '../database/database-connection';
 import { PrismaClient } from '../common/generated/prisma/client';
+import { InjectQueue } from '@nestjs/bullmq';
+import { Queue } from 'bullmq';
 
 @WebSocketGateway({
   cors: { origin: '*' },
@@ -22,6 +24,7 @@ export class PollingGateway implements OnGatewayConnection {
   constructor(
     @Inject(REDIS_CLIENT) private readonly redis: Redis,
     @Inject(DATABASE_CONNECTION) private prismaService: PrismaClient,
+    @InjectQueue('poll-sync') private readonly pollSyncQueue: Queue,
   ) {}
 
   async handleConnection(client: Socket) {
@@ -46,22 +49,6 @@ export class PollingGateway implements OnGatewayConnection {
     const redisHashKey = `poll:${pollId}:votes`;
 
     await this.redis.hset(redisHashKey, userId, String(supportsBunk));
-
-    this.prismaService.pollVote
-      .upsert({
-        where: {
-          pollId_userId: { pollId, userId },
-        },
-        update: {
-          supportsBunk,
-        },
-        create: {
-          pollId,
-          userId,
-          supportsBunk,
-        },
-      })
-      .catch((err) => console.error('Background DB Persistence Error:', err));
 
     const rawVotes = await this.redis.hgetall(redisHashKey);
     const totalVotes = Object.keys(rawVotes).length;
@@ -95,6 +82,8 @@ export class PollingGateway implements OnGatewayConnection {
         where: { id: pollId },
         data: { isLocked: true },
       });
+
+      await this.pollSyncQueue.add('flush-to-postgres', { pollId });
 
       this.server.to(`room:${roomId}`).emit('pollLocked', {
         pollId,
