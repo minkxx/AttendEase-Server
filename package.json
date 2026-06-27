@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@better-auth/expo": "^1.6.19",
+    "@nestjs/bullmq": "^11.0.4",
     "@nestjs/common": "^11.1.27",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.1.27",
@@ -44,6 +45,7 @@
     "@socket.io/redis-adapter": "^8.3.0",
     "@thallesp/nestjs-better-auth": "^2.6.1",
     "better-auth": "^1.6.20",
+    "bullmq": "^5.79.1",
     "dotenv": "^17.4.2",
     "escape-html": "^1.0.3",
     "ioredis": "^5.11.1",
