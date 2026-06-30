@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/minkxx/AttendEase-Server/compare/v0.3.1...v0.3.2) (2026-06-30)
+
+
+### Features
+
+* add admin check before creating a timetable ([5a6fbce](https://github.com/minkxx/AttendEase-Server/commit/5a6fbcee1c54f4ca704ca67c1258eaf3b10d74e0))
+* add exmaple env file ([a9685a3](https://github.com/minkxx/AttendEase-Server/commit/a9685a3b299cec3ff393f76a2d794d35df7ea674))
+* optimize voting performance ([05ab2e4](https://github.com/minkxx/AttendEase-Server/commit/05ab2e4ad9ecb9192428fd5a8e5a16af74f670be))
+* pass user session on create poll service ([d2ddce9](https://github.com/minkxx/AttendEase-Server/commit/d2ddce96d463524903758539555cd74f2d739bc3))
+* pass user session on create poll service ([89c6c8d](https://github.com/minkxx/AttendEase-Server/commit/89c6c8d78f6daca66ab7ba95f36c0865288a6763))
+* pass user session on create timetable service ([84016c3](https://github.com/minkxx/AttendEase-Server/commit/84016c3f062f4a0d6ebf55f2ede6be744f9f8adc))
+* update readme ([a566dd8](https://github.com/minkxx/AttendEase-Server/commit/a566dd874795e9c0d2ab01249fc906e3c51245e1))
+* use transaction on find room and room-member also increased random bytes to 8 characters ([c7c4d49](https://github.com/minkxx/AttendEase-Server/commit/c7c4d49cf29cb1a9f6767f61e7d47d5415b0b8c3))
+
+
+### Bug Fixes
+
+* remove islock field to avoid users set it explicitly ([adc8f6a](https://github.com/minkxx/AttendEase-Server/commit/adc8f6afd8c832eddc9eaa27fd0e99e5cf4a1bdc))
+* remove null checks ([037140f](https://github.com/minkxx/AttendEase-Server/commit/037140f75fc1067a30ae3a8224df735d7b31349d))
+
 ### [0.3.1](https://github.com/minkxx/AttendEase-Server/compare/v0.3.0...v0.3.1) (2026-06-27)
 
 
