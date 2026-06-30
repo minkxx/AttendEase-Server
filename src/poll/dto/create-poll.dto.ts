@@ -7,7 +7,6 @@ export const createPollSchema = z.object({
   date: z.iso.datetime({ error: 'must be a valid date.' }),
   threshold: z.int().min(50).max(100).optional(),
   expiresAt: z.iso.datetime({ error: 'must be a valid date.' }),
-  isLocked: z.boolean().optional(),
 });
 
 export const createPollBodySchema = createPollSchema.omit({
