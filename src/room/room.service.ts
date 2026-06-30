@@ -71,22 +71,20 @@ export class RoomService {
   }
 
   async getRoom(roomId: string, session: UserSession) {
-    const room = await this.prismaService.room.findUnique({
-      where: { id: roomId },
-      include: {
-        members: true,
-      },
-    });
+    const [room, roomMember] = await this.prismaService.$transaction([
+      this.prismaService.room.findUnique({
+        where: { id: roomId },
+      }),
+      this.prismaService.roomMember.findFirst({
+        where: { roomId, userId: session.user.id },
+      }),
+    ]);
 
     if (!room) {
       throw new NotFoundException('Room with the given room id not found.');
     }
 
-    const isRoomMember = room.members.some(
-      (member) => member.userId === session.user.id,
-    );
-
-    if (!isRoomMember) {
+    if (!roomMember) {
       throw new NotFoundException('Join this room to get members.');
     }
 
@@ -125,6 +123,6 @@ export class RoomService {
   }
 
   #generateInviteCode(): string {
-    return randomBytes(4).toString('base64url').toUpperCase();
+    return randomBytes(6).toString('base64url').toUpperCase();
   }
 }
